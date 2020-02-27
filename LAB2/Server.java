@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.IOException;
 import java.net.*;
 
-class Server
+class Server extends Thread
 { 
     private MulticastSocket socket;
     private Map<String, String> dns_map = new HashMap<String, String>();
