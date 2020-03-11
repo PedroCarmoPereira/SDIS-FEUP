@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
  
 # Stored class files
-BIN_DIR=./bin/client
+BIN_DIR=./bin
 # File name without extension
 FILE_NAME=Client
  
@@ -12,7 +12,7 @@ mkdir "$BIN_DIR"
  
 # Start compilation
 
-javac -d "$BIN_DIR" *.java 
+javac -d "$BIN_DIR" src/*.java 
 
 #run
-java -cp "./bin/client" "$FILE_NAME" "$@";
+java -cp "./bin" "$FILE_NAME" "$@";

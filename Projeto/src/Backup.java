@@ -34,7 +34,6 @@ class Backup {
                 this.chunks[i][j] = this.file[j + ((i + 1) * MAX_CHUNK_SIZE)];
             }
         }
-
     }
 
     private void createHash() {
