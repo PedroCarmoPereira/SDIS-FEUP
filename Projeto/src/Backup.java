@@ -11,7 +11,8 @@ class Backup {
     private BasicFileAttributes attributes;
     private byte[][] chunks;
     private String fileId;
-    private String filePath = "./pdfTest/1.pdf";
+    private String filePath = "./pdfTest/1.pdf"; //HARDCODED
+    private int chunksN;
 
     private void readFile() {
         Path file = Paths.get(this.filePath);
@@ -24,10 +25,10 @@ class Backup {
     }
 
     private void createChunks() {
-        int chunksN = (this.file.length / MAX_CHUNK_SIZE) + 1;
-        this.chunks = new byte[chunksN][MAX_CHUNK_SIZE];
+        this.chunksN = (this.file.length / MAX_CHUNK_SIZE) + 1;
+        this.chunks = new byte[this.chunksN][MAX_CHUNK_SIZE];
 
-        for (int i = 0; i < chunksN; i++) {
+        for (int i = 0; i < this.chunksN; i++) {
             for (int j = 0; j < MAX_CHUNK_SIZE; j++) {
                 if (j + ((i + 1) * MAX_CHUNK_SIZE) >= this.file.length)
                     break;
@@ -57,6 +58,14 @@ class Backup {
         } catch (NoSuchAlgorithmException | IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public int getNumberChunks() {
+        return this.chunksN;
+    }
+
+    public String getMessage(int chunk) {
+        return "test message " + chunk;
     }
 
     public Backup() {

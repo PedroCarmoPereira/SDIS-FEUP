@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
  
 # Stored class files
-BIN_DIR=./bin
+BIN_DIR=./bin/Server
 # File name without extension
-FILE_NAME=Server
+FILE_NAME=Peer
  
 # Clean contents of directories for
 # fresh compilation
@@ -12,7 +12,7 @@ mkdir "$BIN_DIR"
  
 # Start compilation
 
-javac -d "$BIN_DIR" src/*.java
+javac -d "$BIN_DIR" src/*.java 
 
 #run
-java -cp "./bin" "$FILE_NAME" "$@";
+java -cp "$BIN_DIR" "$FILE_NAME" "$@";
