@@ -1,0 +1,8 @@
+/bin
+/p2pstorage
+/p2prestored
+fileNameId.txt
+state.txt
+build/
+log.txt
+storage
